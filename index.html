@@ -174,7 +174,7 @@
         }
         .stat-label { color: var(--gray-600); font-weight: 500; margin-top: 8px; }
 
-        /* СЕРТИФИКАТЫ */
+        /* СЕРТИФИКАТЫ (КЛИКАБЕЛЬНЫЕ) */
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -186,6 +186,9 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
         .certificate-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
         .certificate-image-container { height: 200px; overflow: hidden; }
@@ -260,7 +263,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* ССЫЛКИ НА КОНСПЕКТЫ И КУРСОВУЮ (НОВОЕ!) */
+        /* ССЫЛКИ НА КОНСПЕКТЫ И КУРСОВУЮ */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -474,62 +477,98 @@
     </div>
 </section>
 
-<!-- КУРСЫ / СЕРТИФИКАТЫ -->
+<!-- КУРСЫ / СЕРТИФИКАТЫ (КЛИКАБЕЛЬНЫЕ) -->
 <section class="courses" id="courses">
     <div class="container">
         <h2 class="section-title">📚 Пройденные курсы</h2>
-        <p class="section-subtitle">Сертификаты, подтверждающие мои знания</p>
+        <p class="section-subtitle">Сертификаты, подтверждающие мои знания (нажмите на карточку, чтобы открыть)</p>
         <div class="certificates-grid">
-            <div class="certificate-card">
-                <div class="certificate-image-container"><img src="сертификат планета.jpg" alt="ИТ-Диктант" class="certificate-image"></div>
+
+            <!-- 1. АЙТИ ДИКТАНТ -->
+            <a href="https://drive.google.com/file/d/16sHMrp6VhtEKh_6k6ZfGjK-cy5QvIHeJ/view?usp=sharing" target="_blank" class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="сертификат планета.jpg" alt="ИТ-Диктант" class="certificate-image">
+                </div>
                 <div class="certificate-info">
                     <div class="platform-badge">Всероссийская акция</div>
                     <h3 class="certificate-title">ИТ-Диктант</h3>
                     <div class="certificate-meta">📅 12-13 сентября 2025 · ⭐ 94/100</div>
                     <p>Всероссийский диктант по информационным технологиям.</p>
-                    <div class="skills-list"><span class="skill-tag">IT-грамотность</span><span class="skill-tag">Цифровые компетенции</span></div>
+                    <div class="skills-list">
+                        <span class="skill-tag">IT-грамотность</span>
+                        <span class="skill-tag">Цифровые компетенции</span>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-image-container"><img src="сертификат сбер.jpg" alt="GigaChat" class="certificate-image"></div>
+            </a>
+
+            <!-- 2. СБЕР 1 (GigaChat) -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="сертификат сбер.jpg" alt="GigaChat" class="certificate-image">
+                </div>
                 <div class="certificate-info">
                     <div class="platform-badge">СберУниверситет</div>
                     <h3 class="certificate-title">Работа с LLM GigaChat</h3>
                     <div class="certificate-meta">📅 5 ноября 2025 · 🤖 Электронный курс</div>
                     <p>Работа с большими языковыми моделями.</p>
-                    <div class="skills-list"><span class="skill-tag">LLM</span><span class="skill-tag">GigaChat</span></div>
+                    <div class="skills-list">
+                        <span class="skill-tag">LLM</span>
+                        <span class="skill-tag">GigaChat</span>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-image-container"><img src="2026-06-25_12-18-40.png" alt="SQL" class="certificate-image"></div>
+            </a>
+
+            <!-- 3. СТЕПИК (SQL) -->
+            <a href="https://drive.google.com/file/d/179Hr-dF-DnURML-nD5FQ6CPzZxyscf_I/view?usp=sharing" target="_blank" class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="2026-06-25_12-18-40.png" alt="SQL" class="certificate-image">
+                </div>
                 <div class="certificate-info">
                     <div class="platform-badge">Базовый курс</div>
                     <h3 class="certificate-title">SQL Базовый курс</h3>
                     <div class="certificate-meta">✅ 41/41 баллов · 100%</div>
                     <p>Полное прохождение материалов по SQL.</p>
-                    <div class="skills-list"><span class="skill-tag">SQL</span><span class="skill-tag">Базы данных</span></div>
+                    <div class="skills-list">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Базы данных</span>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-image-container"><img src="сбер.jpg" alt="Генеративное искусство" class="certificate-image"></div>
+            </a>
+
+            <!-- 4. СБЕР 2 (Генеративное искусство) -->
+            <a href="https://drive.google.com/file/d/1SNmm-uvg5qvHIj57Sy5TdQTJ24njhBF_/view?usp=sharing" target="_blank" class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="сбер.jpg" alt="Генеративное искусство" class="certificate-image">
+                </div>
                 <div class="certificate-info">
                     <div class="platform-badge">СберУниверситет</div>
                     <h3 class="certificate-title">Генеративное искусство</h3>
                     <div class="certificate-meta">📅 5 ноября 2025 · 🧠 Электронный курс</div>
                     <p>Создание и работа с генеративными нейросетями.</p>
-                    <div class="skills-list"><span class="skill-tag">Нейросети</span><span class="skill-tag">Промпт-инжиниринг</span></div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Нейросети</span>
+                        <span class="skill-tag">Промпт-инжиниринг</span>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-image-container"><img src="вк.jpg" alt="VK Education" class="certificate-image"></div>
+            </a>
+
+            <!-- 5. ВК (SMM) -->
+            <a href="https://drive.google.com/file/d/1XYGZcuhEwUbwBK928fJ3GaWUmFTnsEIj/view?usp=sharing" target="_blank" class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="вк.jpg" alt="VK Education" class="certificate-image">
+                </div>
                 <div class="certificate-info">
                     <div class="platform-badge">VK Education</div>
                     <h3 class="certificate-title">SMM & digital-маркетинг</h3>
                     <div class="certificate-meta">📅 2024 · 📊 28/37 баллов</div>
                     <p>Эффективное использование платформ VK.</p>
-                    <div class="skills-list"><span class="skill-tag">SMM</span><span class="skill-tag">Digital-маркетинг</span></div>
+                    <div class="skills-list">
+                        <span class="skill-tag">SMM</span>
+                        <span class="skill-tag">Digital-маркетинг</span>
+                    </div>
                 </div>
-            </div>
+            </a>
+
         </div>
     </div>
 </section>
@@ -584,7 +623,7 @@
     </div>
 </section>
 
-<!-- КОНСПЕКТЫ И КУРСОВАЯ (НОВОЕ!) -->
+<!-- КОНСПЕКТЫ И КУРСОВАЯ -->
 <section class="links" id="links">
     <div class="container">
         <h2 class="section-title">📄 Конспекты и курсовая</h2>
@@ -682,34 +721,4 @@
 <!-- ФУТЕР -->
 <footer class="footer">
     <div class="container">
-        <p>© 2025 Кулькова Ульяна Андреевна</p>
-        <div class="footer-links">
-            <a href="#home" class="footer-link">Главная</a>
-            <a href="#courses" class="footer-link">Курсы</a>
-            <a href="#projects" class="footer-link">Проекты</a>
-            <a href="#about" class="footer-link">Обо мне</a>
-        </div>
-    </div>
-</footer>
-
-<!-- КНОПКА НАВЕРХ -->
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="scroll-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-<!-- МОБИЛЬНОЕ МЕНЮ -->
-<script>
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    mobileBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-</script>
-
-</body>
-</html>
+        <p>© 202
