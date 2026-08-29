@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кулькова Ульяна | Портфолио</title>
+    <title>Кулькова Ульяна Андреевна | IT-специалист & Менеджер проектов</title>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ==================== */
+        /* Базовые стили и переменные */
+        /* ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
             --dark: #0f172a;
             --gray-800: #1e293b;
             --gray-600: #475569;
@@ -18,15 +32,34 @@
             --gray-100: #f1f5f9;
             --white: #ffffff;
             --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
             --transition: all 0.3s ease;
         }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--gray-800); background: var(--white); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        section { padding: 80px 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -37,6 +70,7 @@
             background-clip: text;
             color: transparent;
         }
+
         .section-subtitle {
             text-align: center;
             color: var(--gray-600);
@@ -44,15 +78,26 @@
             max-width: 600px;
             margin: 0 auto 48px;
         }
+
+        /* ==================== */
+        /* Навигация */
+        /* ==================== */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
+            transition: var(--transition);
         }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 4px 0;
+        }
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -61,6 +106,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .nav-logo {
             font-size: 1.8rem;
             font-weight: 800;
@@ -70,21 +116,72 @@
             color: transparent;
             text-decoration: none;
         }
-        .nav-menu { display: flex; list-style: none; gap: 32px; }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
         .nav-link {
             text-decoration: none;
             color: var(--gray-600);
             font-weight: 500;
             transition: var(--transition);
+            position: relative;
         }
-        .nav-link:hover { color: var(--primary); }
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Мобильное меню */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-800);
+        }
+
         @media (max-width: 768px) {
-            .nav-menu { display: none; flex-direction: column; gap: 16px; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 24px; box-shadow: var(--shadow-md); }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                gap: 16px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 24px;
+                box-shadow: var(--shadow-md);
+            }
             .nav-menu.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .section-title { font-size: 2rem; }
         }
+
+        /* ==================== */
+        /* Герой-секция */
+        /* ==================== */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -94,6 +191,24 @@
             position: relative;
             overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(236,72,153,0.1) 100%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+
         .hero-content {
             display: flex;
             align-items: center;
@@ -102,6 +217,11 @@
             position: relative;
             z-index: 2;
         }
+
+        .profile-wrapper {
+            position: relative;
+        }
+
         .profile-photo {
             width: 280px;
             height: 280px;
@@ -109,8 +229,30 @@
             object-fit: cover;
             border: 4px solid var(--primary);
             box-shadow: var(--shadow-lg);
+            animation: float 6s ease-in-out infinite;
         }
-        .hero-text { flex: 1; color: var(--white); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-text {
+            flex: 1;
+            color: var(--white);
+        }
+
+        .hero-badge {
+            background: rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 24px;
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+
         .hero-name {
             font-size: 3.5rem;
             font-weight: 800;
@@ -120,9 +262,27 @@
             background-clip: text;
             color: transparent;
         }
-        .hero-specialization { font-size: 1.3rem; color: var(--gray-400); margin-bottom: 20px; }
-        .hero-pitch { font-size: 1.1rem; color: var(--gray-300); max-width: 500px; margin-bottom: 32px; }
-        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .hero-specialization {
+            font-size: 1.3rem;
+            color: var(--gray-400);
+            margin-bottom: 20px;
+        }
+
+        .hero-pitch {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            max-width: 500px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         .btn {
             padding: 12px 28px;
             border-radius: 40px;
@@ -132,90 +292,134 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
         }
-        .btn-primary { background: var(--gradient-1); color: white; }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px var(--primary); }
-        .btn-secondary { background: transparent; border: 1px solid var(--primary); color: white; }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: white;
+        }
         .btn-secondary:hover { background: var(--primary); transform: translateY(-3px); }
+
+        .btn-django {
+            background: #092E20;
+            color: white;
+        }
+        .btn-django:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #092E20; }
+
+        .btn-laravel {
+            background: #FF2D20;
+            color: white;
+        }
+        .btn-laravel:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #FF2D20; }
+
         @media (max-width: 768px) {
             .hero-content { flex-direction: column; text-align: center; }
             .hero-name { font-size: 2.5rem; }
-            .profile-photo { width: 220px; height: 220px; }
+            .hero-pitch { margin-left: auto; margin-right: auto; }
             .btn-group { justify-content: center; }
+            .profile-photo { width: 220px; height: 220px; }
         }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            text-align: center;
-            margin: 40px 0;
+
+        /* ==================== */
+        /* Карточки курсов */
+        /* ==================== */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
-        .stat-item {
-            background: var(--white);
-            padding: 30px 20px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
+        .filter-btn {
+            padding: 8px 24px;
+            border-radius: 40px;
+            background: var(--gray-100);
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
             transition: var(--transition);
         }
-        .stat-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
+        .filter-btn.active, .filter-btn:hover {
             background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
+            transform: translateY(-2px);
         }
-        .stat-label { color: var(--gray-600); font-weight: 500; margin-top: 8px; }
 
-        /* КНОПКИ СЕРТИФИКАТОВ (БЕЗ КАРТИНОК) */
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
+
         .certificate-card {
             background: var(--white);
-            padding: 24px;
             border-radius: 24px;
+            overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            text-align: center;
-            border: 1px solid var(--gray-200);
+            cursor: pointer;
         }
-        .certificate-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+        .certificate-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+        .certificate-image-container {
+            height: 200px;
+            overflow: hidden;
         }
-        .certificate-card i {
-            font-size: 2.5rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 12px;
+        .certificate-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
         }
-        .certificate-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-        .certificate-card .meta {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin-bottom: 12px;
-        }
-        .certificate-card .platform {
-            display: inline-block;
+        .certificate-card:hover .certificate-image { transform: scale(1.05); }
+
+        .certificate-info { padding: 24px; }
+        .platform-badge {
             background: var(--gradient-1);
             color: white;
             padding: 4px 12px;
             border-radius: 40px;
             font-size: 0.8rem;
+            display: inline-block;
             margin-bottom: 12px;
+        }
+        .certificate-title { font-size: 1.3rem; margin-bottom: 8px; }
+        .certificate-meta {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
         }
         .skill-tag {
             background: var(--gray-100);
@@ -223,24 +427,11 @@
             border-radius: 40px;
             font-size: 0.75rem;
             font-weight: 500;
-            display: inline-block;
-            margin: 4px;
-        }
-        .open-btn {
-            display: inline-block;
-            margin-top: 16px;
-            padding: 8px 20px;
-            background: var(--gradient-1);
-            color: white;
-            border-radius: 40px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        .certificate-card:hover .open-btn {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
         }
 
+        /* ==================== */
+        /* Проекты */
+        /* ==================== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -254,7 +445,7 @@
             border: 1px solid var(--gray-200);
             transition: var(--transition);
         }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--primary-light); box-shadow: var(--shadow-md); }
         .project-icon {
             width: 60px;
             height: 60px;
@@ -269,15 +460,39 @@
         .project-title { font-size: 1.4rem; margin-bottom: 8px; }
         .project-role {
             display: inline-block;
-            background: rgba(99,102,241,0.1);
+            background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
             padding: 4px 12px;
             border-radius: 40px;
             font-size: 0.8rem;
             margin-bottom: 16px;
         }
-        .project-description { color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
+        .project-description {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .project-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .btn-small {
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
+        /* ==================== */
+        /* Практика */
+        /* ==================== */
         .practice-image {
             width: 100%;
             max-width: 600px;
@@ -286,45 +501,30 @@
             display: block;
             box-shadow: var(--shadow-md);
         }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .link-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-        .link-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .link-card i {
-            font-size: 2.5rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 16px;
-        }
-        .link-card h3 { margin-bottom: 8px; }
-        .link-card p { color: var(--gray-600); margin-bottom: 20px; }
-        .link-btn {
-            display: inline-block;
-            padding: 10px 24px;
+        .twine-link {
             background: var(--gradient-1);
             color: white;
+            padding: 12px 28px;
             border-radius: 40px;
             text-decoration: none;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             transition: var(--transition);
+            margin-top: 20px;
         }
-        .link-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .twine-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
 
-        .roadmap-container { max-width: 900px; margin: 0 auto; }
+        /* ==================== */
+        /* Roadmap */
+        /* ==================== */
+        .roadmap-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
         .roadmap-item {
             display: flex;
             gap: 30px;
@@ -335,7 +535,10 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
-        .roadmap-item:hover { transform: translateX(10px); box-shadow: var(--shadow-md); }
+        .roadmap-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
         .roadmap-icon {
             width: 60px;
             height: 60px;
@@ -348,8 +551,16 @@
             color: white;
             flex-shrink: 0;
         }
-        .roadmap-content h3 { font-size: 1.3rem; margin-bottom: 8px; }
-        .skills-categories { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .roadmap-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        .skills-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
         .skill-category {
             background: var(--gray-100);
             padding: 6px 14px;
@@ -357,11 +568,15 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
+
         @media (max-width: 768px) {
             .roadmap-item { flex-direction: column; text-align: center; }
             .roadmap-icon { margin: 0 auto; }
         }
 
+        /* ==================== */
+        /* Обо мне */
+        /* ==================== */
         .skills-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -375,8 +590,21 @@
             text-align: center;
             transition: var(--transition);
         }
-        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .skill-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 16px; }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .skill-card h3 {
+            margin-bottom: 16px;
+        }
+        .justify-center {
+            justify-content: center;
+        }
         .social-links {
             display: flex;
             justify-content: center;
@@ -398,6 +626,9 @@
         }
         .social-link:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
+        /* ==================== */
+        /* Футер */
+        /* ==================== */
         .footer {
             background: var(--dark);
             color: var(--gray-400);
@@ -411,30 +642,86 @@
             margin: 20px 0;
             flex-wrap: wrap;
         }
-        .footer-link { color: var(--gray-400); text-decoration: none; transition: var(--transition); }
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition);
+        }
         .footer-link:hover { color: var(--primary); }
 
-        .scroll-top {
+        /* ==================== */
+        /* Модальное окно */
+        /* ==================== */
+        .modal {
+            display: none;
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            z-index: 999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
         }
-        .scroll-top:hover { transform: translateY(-5px) scale(1.05); }
+        .modal.active { display: flex; }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--white);
+            border-radius: 24px;
+            overflow: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content img { width: 100%; height: auto; border-radius: 24px; }
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 32px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        .close-modal:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        /* ==================== */
+        /* Дополнительные кнопки проектов */
+        /* ==================== */
+        .projects-showcase {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid var(--gray-200);
+            text-align: center;
+        }
+        .projects-showcase h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gray-800);
+        }
+        .projects-showcase .btn-group {
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 
+<!-- Фиксированная навигация -->
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="#home" class="nav-logo">УК</a>
@@ -444,120 +731,96 @@
             <li><a href="#courses" class="nav-link">Курсы</a></li>
             <li><a href="#projects" class="nav-link">Проекты</a></li>
             <li><a href="#practice" class="nav-link">Практика</a></li>
-            <li><a href="#links" class="nav-link">Конспекты</a></li>
             <li><a href="#self-development" class="nav-link">Саморазвитие</a></li>
             <li><a href="#about" class="nav-link">Обо мне</a></li>
         </ul>
     </div>
 </nav>
 
+<!-- Герой -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-content">
             <div class="profile-wrapper">
-                <img src="мое фото.jpg" alt="Кулькова Ульяна" class="profile-photo">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop" alt="Кулькова Ульяна" class="profile-photo">
             </div>
             <div class="hero-text">
                 <div class="hero-badge"><i class="fas fa-star"></i> Open for opportunities</div>
                 <h1 class="hero-name">Кулькова Ульяна Андреевна</h1>
                 <div class="hero-specialization">IT-специалист • Менеджер проектов</div>
-                <p class="hero-pitch">Организую эффективную работу команд, работаю с базами данных и IT-инфраструктурой.</p>
+                <p class="hero-pitch">Организую эффективную работу команд, работаю с базами данных и IT-инфраструктурой. Умею учиться быстро и решать нетривиальные задачи.</p>
                 <div class="btn-group">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
                     <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
+                    <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django"><i class="fab fa-python"></i> Django проект</a>
+                    <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel"><i class="fab fa-laravel"></i> Laravel проект</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="stats" id="stats">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Пройденных курсов</div></div>
-            <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Реализованных проекта</div></div>
-            <div class="stat-item"><div class="stat-number">94%</div><div class="stat-label">Средний балл</div></div>
-            <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Технологии в работе</div></div>
-        </div>
-    </div>
-</section>
-
-<!-- СЕРТИФИКАТЫ (КНОПКИ, БЕЗ КАРТИНОК) -->
+<!-- Курсы (с фильтрацией) -->
 <section class="courses" id="courses">
     <div class="container">
         <h2 class="section-title">📚 Пройденные курсы</h2>
-        <p class="section-subtitle">Сертификаты, подтверждающие мои знания (нажмите на карточку, чтобы открыть)</p>
-        <div class="certificates-grid">
-
-            <a href="https://drive.google.com/file/d/16sHMrp6VhtEKh_6k6ZfGjK-cy5QvIHeJ/view?usp=sharing" target="_blank" class="certificate-card">
-                <i class="fas fa-certificate"></i>
-                <div class="platform">Всероссийская акция</div>
-                <h3>ИТ-Диктант</h3>
-                <div class="meta">📅 12-13 сентября 2025 · ⭐ 94/100</div>
-                <p>Всероссийский диктант по информационным технологиям.</p>
-                <div>
-                    <span class="skill-tag">IT-грамотность</span>
-                    <span class="skill-tag">Цифровые компетенции</span>
+        <p class="section-subtitle">Сертификаты, подтверждающие мои знания</p>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="programming">Программирование</button>
+            <button class="filter-btn" data-filter="ai">ИИ</button>
+            <button class="filter-btn" data-filter="marketing">Маркетинг</button>
+        </div>
+        <div class="certificates-grid" id="certificatesGrid">
+            <!-- Карточка 1 (программирование) -->
+            <div class="certificate-card" data-category="programming">
+                <div class="certificate-image-container"><img src="photo_5350481738817277267_y.jpg" alt="ИТ-Диктант" class="certificate-image"></div>
+                <div class="certificate-info">
+                    <div class="platform-badge">Всероссийская акция</div>
+                    <h3 class="certificate-title">ИТ-Диктант</h3>
+                    <div class="certificate-meta">📅 12-13 сентября 2025 · ⭐ 94/100</div>
+                    <p>Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность.</p>
+                    <div class="skills-list"><span class="skill-tag">IT-грамотность</span><span class="skill-tag">Цифровые компетенции</span><span class="skill-tag">Инфобезопасность</span></div>
                 </div>
-                <div class="open-btn"><i class="fas fa-external-link-alt"></i> Открыть сертификат</div>
-            </a>
-
-            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
-                <i class="fas fa-robot"></i>
-                <div class="platform">СберУниверситет</div>
-                <h3>Работа с LLM GigaChat</h3>
-                <div class="meta">📅 5 ноября 2025 · 🤖 Электронный курс</div>
-                <p>Работа с большими языковыми моделями.</p>
-                <div>
-                    <span class="skill-tag">LLM</span>
-                    <span class="skill-tag">GigaChat</span>
+            </div>
+            <!-- Карточка 2 (ИИ) -->
+            <div class="certificate-card" data-category="ai">
+                <div class="certificate-image-container"><img src="photo_5350481738817277264_y.jpg" alt="Генеративное искусство" class="certificate-image"></div>
+                <div class="certificate-info">
+                    <div class="platform-badge">СберУниверситет</div>
+                    <h3 class="certificate-title">Генеративное искусство</h3>
+                    <div class="certificate-meta">📅 5 ноября 2025 · 🧠 Электронный курс</div>
+                    <p>Создание и работа с генеративными нейросетями для цифрового искусства.</p>
+                    <div class="skills-list"><span class="skill-tag">Нейросети</span><span class="skill-tag">Промпт-инжиниринг</span><span class="skill-tag">AI Art</span></div>
                 </div>
-                <div class="open-btn"><i class="fas fa-external-link-alt"></i> Открыть сертификат</div>
-            </a>
-
-            <a href="https://drive.google.com/file/d/179Hr-dF-DnURML-nD5FQ6CPzZxyscf_I/view?usp=sharing" target="_blank" class="certificate-card">
-                <i class="fas fa-database"></i>
-                <div class="platform">Базовый курс</div>
-                <h3>SQL Базовый курс</h3>
-                <div class="meta">✅ 41/41 баллов · 100%</div>
-                <p>Полное прохождение материалов по SQL.</p>
-                <div>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Базы данных</span>
+            </div>
+            <!-- Карточка 3 (ИИ) -->
+            <div class="certificate-card" data-category="ai">
+                <div class="certificate-image-container"><img src="photo_5350481738817277265_y.jpg" alt="GigaChat" class="certificate-image"></div>
+                <div class="certificate-info">
+                    <div class="platform-badge">СберУниверситет</div>
+                    <h3 class="certificate-title">Работа с LLM GigaChat</h3>
+                    <div class="certificate-meta">📅 5 ноября 2025 · 🤖 Электронный курс</div>
+                    <p>Работа с большими языковыми моделями, тонкая настройка, интеграция в проекты.</p>
+                    <div class="skills-list"><span class="skill-tag">LLM</span><span class="skill-tag">GigaChat</span><span class="skill-tag">RAG</span></div>
                 </div>
-                <div class="open-btn"><i class="fas fa-external-link-alt"></i> Открыть сертификат</div>
-            </a>
-
-            <a href="https://drive.google.com/file/d/1SNmm-uvg5qvHIj57Sy5TdQTJ24njhBF_/view?usp=sharing" target="_blank" class="certificate-card">
-                <i class="fas fa-paint-brush"></i>
-                <div class="platform">СберУниверситет</div>
-                <h3>Генеративное искусство</h3>
-                <div class="meta">📅 5 ноября 2025 · 🧠 Электронный курс</div>
-                <p>Создание и работа с генеративными нейросетями.</p>
-                <div>
-                    <span class="skill-tag">Нейросети</span>
-                    <span class="skill-tag">Промпт-инжиниринг</span>
+            </div>
+            <!-- Карточка 4 (маркетинг) -->
+            <div class="certificate-card" data-category="marketing">
+                <div class="certificate-image-container"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=200&fit=crop" alt="VK Education" class="certificate-image"></div>
+                <div class="certificate-info">
+                    <div class="platform-badge">VK Education</div>
+                    <h3 class="certificate-title">SMM и digital-маркетинг</h3>
+                    <div class="certificate-meta">📅 2024 · 📊 28/37 баллов</div>
+                    <p>Эффективное использование платформ VK в SMM и digital-маркетинге.</p>
+                    <div class="skills-list"><span class="skill-tag">SMM</span><span class="skill-tag">Digital-маркетинг</span><span class="skill-tag">VK Реклама</span></div>
                 </div>
-                <div class="open-btn"><i class="fas fa-external-link-alt"></i> Открыть сертификат</div>
-            </a>
-
-            <a href="https://drive.google.com/file/d/1XYGZcuhEwUbwBK928fJ3GaWUmFTnsEIj/view?usp=sharing" target="_blank" class="certificate-card">
-                <i class="fab fa-vk"></i>
-                <div class="platform">VK Education</div>
-                <h3>SMM & digital-маркетинг</h3>
-                <div class="meta">📅 2024 · 📊 28/37 баллов</div>
-                <p>Эффективное использование платформ VK.</p>
-                <div>
-                    <span class="skill-tag">SMM</span>
-                    <span class="skill-tag">Digital-маркетинг</span>
-                </div>
-                <div class="open-btn"><i class="fas fa-external-link-alt"></i> Открыть сертификат</div>
-            </a>
-
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Проекты -->
 <section class="projects" id="projects">
     <div class="container">
         <h2 class="section-title">💼 Мои проекты</h2>
@@ -567,165 +830,75 @@
                 <div class="project-icon"><i class="fas fa-folder-open"></i></div>
                 <h3 class="project-title">Документооборот в команде</h3>
                 <span class="project-role">Менеджер проекта</span>
-                <p class="project-description">Реализация системы документооборота для управления проектной документацией.</p>
-                <div class="skills-list"><span class="skill-tag">Управление проектами</span><span class="skill-tag">Координация</span></div>
+                <p class="project-description">Реализация системы документооборота для управления проектной документацией. Отвечала за выполнение заданий участниками команды, координацию и контроль сроков.</p>
+                <div class="skills-list"><span class="skill-tag">Управление проектами</span><span class="skill-tag">Координация</span><span class="skill-tag">Контроль качества</span></div>
             </div>
+            
             <div class="project-card">
                 <div class="project-icon"><i class="fas fa-trophy"></i></div>
                 <h3 class="project-title">Проект для конкурса «Система»</h3>
                 <span class="project-role">Менеджер</span>
-                <p class="project-description">Участие в конкурсе с проектом автоматизации образовательного процесса.</p>
-                <div class="skills-list"><span class="skill-tag">Организация работы</span><span class="skill-tag">Распределение задач</span></div>
+                <p class="project-description">Участие в конкурсе с проектом автоматизации образовательного процесса. Организация работы команды, распределение задач и контроль выполнения.</p>
+                <div class="skills-list"><span class="skill-tag">Организация работы</span><span class="skill-tag">Распределение задач</span><span class="skill-tag">Контроль</span></div>
             </div>
+
+            <!-- Новый проект: Редизайн Evelink -->
             <div class="project-card">
                 <div class="project-icon"><i class="fas fa-palette"></i></div>
                 <h3 class="project-title">Редизайн Evelink</h3>
                 <span class="project-role">Аналитик • Дизайнер</span>
-                <p class="project-description">Полный редизайн веб-платформы Evelink. Разработка макетов в Figma.</p>
-                <div class="skills-list"><span class="skill-tag">UI/UX дизайн</span><span class="skill-tag">Figma</span></div>
+                <p class="project-description">
+                    <strong>Редизайн веб-платформы Evelink</strong> — полностью обновила визуальную концепцию и пользовательский интерфейс. 
+                    Провела анализ текущего интерфейса, разработала новые макеты в Figma, 
+                    улучшила пользовательский опыт (UX) и адаптивную вёрстку.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">UI/UX дизайн</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Анализ интерфейсов</span>
+                    <span class="skill-tag">Прототипирование</span>
+                </div>
             </div>
+
             <div class="project-card">
                 <div class="project-icon"><i class="fas fa-database"></i></div>
                 <h3 class="project-title">Работа с базой данных</h3>
                 <span class="project-role">Разработчик БД</span>
-                <p class="project-description">Проектирование и администрирование БД для системы документооборота.</p>
-                <div class="skills-list"><span class="skill-tag">SQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span></div>
+                <p class="project-description">
+                    <strong>Проектирование и администрирование баз данных</strong> — разработка структуры БД для системы документооборота. 
+                    Создание SQL-запросов, оптимизация производительности, настройка индексов, 
+                    работа с PostgreSQL и MySQL.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Оптимизация запросов</span>
+                    <span class="skill-tag">Индексы</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ДОПОЛНИТЕЛЬНЫЕ КНОПКИ С ПЕРЕХОДАМИ НА DJANGO И LARAVEL -->
+        <div class="projects-showcase">
+            <h3>🌐 Мои веб-приложения</h3>
+            <div class="btn-group">
+                <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django">
+                    <i class="fab fa-python"></i> Django проект
+                </a>
+                <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel">
+                    <i class="fab fa-laravel"></i> Laravel проект
+                </a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Практика -->
 <section class="practice" id="practice">
     <div class="container">
         <h2 class="section-title">🏢 Производственная практика</h2>
         <p class="section-subtitle">Опыт работы в реальных условиях</p>
         <div style="text-align: center; max-width: 800px; margin: auto;">
             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600" class="practice-image" alt="Практика">
-            <p style="margin-bottom: 20px;">Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong>.</p>
-        </div>
-    </div>
-</section>
-
-<section class="links" id="links">
-    <div class="container">
-        <h2 class="section-title">📄 Конспекты и курсовая</h2>
-        <p class="section-subtitle">Мои учебные материалы</p>
-        <div class="links-grid">
-            <div class="link-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Конспекты</h3>
-                <p>Материалы по курсам и лекциям в Google Colab</p>
-                <a href="https://colab.research.google.com/drive/1rHuOMu-T905bZmRQcVJlBXPjfaGcKHFx?usp=sharing" target="_blank" class="link-btn">
-                    <i class="fas fa-external-link-alt"></i> Открыть конспекты
-                </a>
-            </div>
-            <div class="link-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>Курсовая работа</h3>
-                <p>Полный текст курсовой работы в Google Docs</p>
-                <a href="https://docs.google.com/document/d/1Oub4fRpUJno76DRwc8lHt-a4HSyAFryX/edit" target="_blank" class="link-btn">
-                    <i class="fas fa-external-link-alt"></i> Открыть курсовую
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="self-development" id="self-development">
-    <div class="container">
-        <h2 class="section-title">🚀 Саморазвитие и обучение</h2>
-        <p class="section-subtitle">Дорожная карта моих профессиональных навыков</p>
-        <div class="roadmap-container">
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-code"></i></div>
-                <div class="roadmap-content">
-                    <h3>Веб-разработка</h3>
-                    <p>Создание современных веб-приложений</p>
-                    <div class="skills-categories"><span class="skill-category">HTML5</span><span class="skill-category">CSS3</span><span class="skill-category">JavaScript</span></div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-database"></i></div>
-                <div class="roadmap-content">
-                    <h3>Базы данных</h3>
-                    <p>Проектирование, администрирование и оптимизация БД</p>
-                    <div class="skills-categories"><span class="skill-category">SQL</span><span class="skill-category">PostgreSQL</span><span class="skill-category">MySQL</span></div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-robot"></i></div>
-                <div class="roadmap-content">
-                    <h3>Искусственный интеллект</h3>
-                    <p>Работа с LLM и генеративными моделями</p>
-                    <div class="skills-categories"><span class="skill-category">GigaChat</span><span class="skill-category">Нейросети</span><span class="skill-category">Промпт-инжиниринг</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">👩‍💻 Обо мне</h2>
-        <p class="section-subtitle">Мои навыки и контакты</p>
-        <div class="skills-wrapper">
-            <div class="skill-card">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Управление проектами</h3>
-                <p>Организация работы команд, контроль сроков</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <h3>Базы данных</h3>
-                <p>SQL, PostgreSQL, MySQL, оптимизация</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>UI/UX дизайн</h3>
-                <p>Figma, прототипирование, анализ</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-robot"></i>
-                <h3>Искусственный интеллект</h3>
-                <p>LLM, GigaChat, генеративные нейросети</p>
-            </div>
-        </div>
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
-            <a href="#" class="social-link"><i class="fab fa-vk"></i> VK</a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Кулькова Ульяна Андреевна</p>
-        <div class="footer-links">
-            <a href="#home" class="footer-link">Главная</a>
-            <a href="#courses" class="footer-link">Курсы</a>
-            <a href="#projects" class="footer-link">Проекты</a>
-            <a href="#about" class="footer-link">Обо мне</a>
-        </div>
-    </div>
-</footer>
-
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="scroll-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-<script>
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    mobileBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-</script>
-
-</body>
-</html>
+            <p style="margin-bottom: 20px;">Прохождение производственной практики в <strong>ГБПОУ МО «Любере
