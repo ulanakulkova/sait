@@ -80,7 +80,7 @@
         }
 
         /* ==================== */
-        /* Навигация */
+        /* Улучшенная навигация */
         /* ==================== */
         .navbar {
             position: fixed;
@@ -326,18 +326,6 @@
         }
         .btn-secondary:hover { background: var(--primary); transform: translateY(-3px); }
 
-        .btn-django {
-            background: #092E20;
-            color: white;
-        }
-        .btn-django:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #092E20; }
-
-        .btn-laravel {
-            background: #FF2D20;
-            color: white;
-        }
-        .btn-laravel:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #FF2D20; }
-
         @media (max-width: 768px) {
             .hero-content { flex-direction: column; text-align: center; }
             .hero-name { font-size: 2.5rem; }
@@ -471,23 +459,6 @@
             color: var(--gray-600);
             margin-bottom: 20px;
             line-height: 1.6;
-        }
-        .project-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 16px;
-        }
-        .btn-small {
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
         /* ==================== */
@@ -699,24 +670,6 @@
             background: var(--primary);
             transform: rotate(90deg);
         }
-
-        /* ==================== */
-        /* Дополнительные кнопки проектов */
-        /* ==================== */
-        .projects-showcase {
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 2px solid var(--gray-200);
-            text-align: center;
-        }
-        .projects-showcase h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--gray-800);
-        }
-        .projects-showcase .btn-group {
-            justify-content: center;
-        }
     </style>
 </head>
 <body>
@@ -752,8 +705,6 @@
                 <div class="btn-group">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
                     <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
-                    <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django"><i class="fab fa-python"></i> Django проект</a>
-                    <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel"><i class="fab fa-laravel"></i> Laravel проект</a>
                 </div>
             </div>
         </div>
@@ -820,7 +771,7 @@
     </div>
 </section>
 
-<!-- Проекты -->
+<!-- Проекты (ДОБАВЛЕН НОВЫЙ ПРОЕКТ ПРО EVELINK) -->
 <section class="projects" id="projects">
     <div class="container">
         <h2 class="section-title">💼 Мои проекты</h2>
@@ -842,6 +793,7 @@
                 <div class="skills-list"><span class="skill-tag">Организация работы</span><span class="skill-tag">Распределение задач</span><span class="skill-tag">Контроль</span></div>
             </div>
 
+            <!-- НОВЫЙ ПРОЕКТ: Редизайн Evelink + База данных -->
             <div class="project-card">
                 <div class="project-icon"><i class="fas fa-palette"></i></div>
                 <h3 class="project-title">Редизайн Evelink</h3>
@@ -877,19 +829,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- ДОПОЛНИТЕЛЬНЫЕ КНОПКИ С ПЕРЕХОДАМИ НА DJANGO И LARAVEL -->
-        <div class="projects-showcase">
-            <h3>🌐 Мои веб-приложения</h3>
-            <div class="btn-group">
-                <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django">
-                    <i class="fab fa-python"></i> Django проект
-                </a>
-                <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel">
-                    <i class="fab fa-laravel"></i> Laravel проект
-                </a>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -900,4 +839,37 @@
         <p class="section-subtitle">Опыт работы в реальных условиях</p>
         <div style="text-align: center; max-width: 800px; margin: auto;">
             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600" class="practice-image" alt="Практика">
-            <p style="margin-bottom: 20px;">Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени
+            <p style="margin-bottom: 20px;">Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong>. Получила практический опыт работы с IT-инфраструктурой, участвовала в разработке внутренних систем, изучала процессы документооборота и управления проектами. Также работала с базами данных предприятия и участвовала в анализе IT-систем.</p>
+            <a href="#" class="twine-link"><i class="fas fa-gamepad"></i> Интерактивная новелла о практике</a>
+        </div>
+    </div>
+</section>
+
+<!-- Саморазвитие (добавлены новые навыки) -->
+<section class="self-development" id="self-development">
+    <div class="container">
+        <h2 class="section-title">🚀 Саморазвитие и обучение</h2>
+        <p class="section-subtitle">Дорожная карта моих профессиональных навыков</p>
+        <div class="roadmap-container">
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><i class="fas fa-code"></i></div>
+                <div class="roadmap-content">
+                    <h3>Веб-разработка</h3>
+                    <p>Создание современных веб-приложений</p>
+                    <div class="skills-categories"><span class="skill-category">HTML5</span><span class="skill-category">CSS3</span><span class="skill-category">JavaScript</span><span class="skill-category">TypeScript</span></div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><i class="fas fa-database"></i></div>
+                <div class="roadmap-content">
+                    <h3>Базы данных</h3>
+                    <p>Проектирование, администрирование и оптимизация БД</p>
+                    <div class="skills-categories"><span class="skill-category">SQL</span><span class="skill-category">PostgreSQL</span><span class="skill-category">MySQL</span><span class="skill-category">Оптимизация</span></div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><i class="fas fa-paint-brush"></i></div>
+                <div class="roadmap-content">
+                    <h3>UI/UX дизайн</h3>
+                    <p>Создание удобных и красивых интерфейсов</p>
+                    <div class="skills-categories
