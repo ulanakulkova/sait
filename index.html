@@ -3,862 +3,958 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кулькова Ульяна Андреевна | IT-специалист & Менеджер проектов</title>
+    <title>Кулькова Ульяна | Портфолио</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ==================== */
-        /* Базовые стили и переменные */
-        /* ==================== */
+        /* ===== ОБЩИЕ СТИЛИ ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #ec4899;
-            --accent: #06b6d4;
-            --dark: #0f172a;
-            --gray-800: #1e293b;
-            --gray-600: #475569;
-            --gray-400: #94a3b8;
-            --gray-200: #e2e8f0;
-            --gray-100: #f1f5f9;
-            --white: #ffffff;
-            --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--gray-800);
-            background-color: var(--white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
             line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        section {
-            padding: 80px 0;
+        /* ===== ШАПКА С ПОГОДОЙ ===== */
+        .top-bar {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 40px;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .top-bar span {
+            margin-left: 20px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-600);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 48px;
-        }
-
-        /* ==================== */
-        /* Улучшенная навигация */
-        /* ==================== */
+        /* ===== НАВИГАЦИЯ ===== */
         .navbar {
-            position: fixed;
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 4px 0;
+            z-index: 100;
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .nav-logo {
-            font-size: 1.8rem;
+            font-size: 28px;
             font-weight: 800;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #1a1a2e;
             text-decoration: none;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 30px;
         }
 
-        .nav-link {
+        .nav-menu a {
             text-decoration: none;
-            color: var(--gray-600);
+            color: #4a4a6a;
             font-weight: 500;
-            transition: var(--transition);
-            position: relative;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: var(--transition);
+        .nav-menu a:hover {
+            color: #6366f1;
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        .nav-menu a.active {
+            color: #6366f1;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary);
-        }
-
-        /* Мобильное меню */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 24px;
             cursor: pointer;
-            color: var(--gray-800);
+            color: #1a1a2e;
         }
 
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                gap: 16px;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                padding: 24px;
-                box-shadow: var(--shadow-md);
-            }
-            .nav-menu.active { display: flex; }
-            .mobile-menu-btn { display: block; }
-            .section-title { font-size: 2rem; }
-        }
-
-        /* ==================== */
-        /* Герой-секция */
-        /* ==================== */
+        /* ===== ГЕРОЙ-СЕКЦИЯ ===== */
         .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(236,72,153,0.1) 100%);
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.2); opacity: 0.5; }
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
         }
 
         .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-wrapper {
-            position: relative;
-        }
-
-        .profile-photo {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            box-shadow: var(--shadow-lg);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .hero-text {
-            flex: 1;
-            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .hero-badge {
-            background: rgba(99, 102, 241, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.9rem;
             display: inline-block;
-            margin-bottom: 24px;
+            background: rgba(99,102,241,0.2);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 14px;
             border: 1px solid rgba(99,102,241,0.3);
-        }
-
-        .hero-name {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-specialization {
-            font-size: 1.3rem;
-            color: var(--gray-400);
             margin-bottom: 20px;
         }
 
+        .hero-name {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-specialization {
+            font-size: 20px;
+            color: #a0a0c0;
+            margin-bottom: 15px;
+        }
+
         .hero-pitch {
-            font-size: 1.1rem;
-            color: var(--gray-300);
+            font-size: 18px;
+            color: #c0c0d0;
             max-width: 500px;
-            margin-bottom: 32px;
+            margin: 0 auto 30px;
             line-height: 1.7;
         }
 
         .btn-group {
             display: flex;
-            gap: 16px;
+            gap: 15px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 28px;
-            border-radius: 40px;
+            padding: 12px 30px;
+            border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
-            transition: var(--transition);
+            transition: 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
+            font-size: 15px;
         }
 
         .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: #fff;
         }
 
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99,102,241,0.4);
         }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px var(--primary); }
 
         .btn-secondary {
             background: transparent;
-            border: 1px solid var(--primary);
-            color: white;
-        }
-        .btn-secondary:hover { background: var(--primary); transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-name { font-size: 2.5rem; }
-            .hero-pitch { margin-left: auto; margin-right: auto; }
-            .btn-group { justify-content: center; }
-            .profile-photo { width: 220px; height: 220px; }
+            border: 2px solid #6366f1;
+            color: #fff;
         }
 
-        /* ==================== */
-        /* Карточки курсов */
-        /* ==================== */
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
+        .btn-secondary:hover {
+            background: #6366f1;
+            transform: translateY(-3px);
+        }
+
+        /* ===== СТАТИСТИКА ===== */
+        .stats {
+            background: #fff;
+            padding: 40px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .stat-item p {
+            color: #6a6a8a;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* ===== КУРСЫ ===== */
+        .courses {
+            padding: 60px 0;
+            background: #f8f9fc;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6a6a8a;
+            font-size: 16px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 8px 24px;
-            border-radius: 40px;
-            background: var(--gray-100);
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--gradient-1);
-            color: white;
-            transform: translateY(-2px);
         }
 
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
         }
 
         .certificate-card {
-            background: var(--white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
             text-decoration: none;
             color: inherit;
             display: block;
+            border: 1px solid #eee;
         }
-        .certificate-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 
-        .certificate-image-container {
-            height: 200px;
-            overflow: hidden;
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #6366f1;
         }
-        .certificate-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .certificate-card:hover .certificate-image { transform: scale(1.05); }
 
-        .certificate-info { padding: 24px; }
-        .platform-badge {
-            background: var(--gradient-1);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.8rem;
+        .certificate-card .badge {
             display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
             margin-bottom: 12px;
         }
-        .certificate-title { font-size: 1.3rem; margin-bottom: 8px; }
-        .certificate-meta {
-            font-size: 0.85rem;
-            color: var(--gray-600);
+
+        .certificate-card h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .certificate-card .meta {
+            font-size: 14px;
+            color: #6a6a8a;
             margin-bottom: 12px;
         }
-        .skills-list {
+
+        .certificate-card p {
+            color: #4a4a6a;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .certificate-card .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 16px;
-        }
-        .skill-tag {
-            background: var(--gray-100);
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 500;
+            margin-bottom: 15px;
         }
 
-        /* ==================== */
-        /* Проекты */
-        /* ==================== */
+        .certificate-card .skill-tag {
+            background: #f0f2f5;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #4a4a6a;
+        }
+
+        .certificate-card .open-btn {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .certificate-card .open-btn i {
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .certificate-card:hover .open-btn i {
+            transform: translateX(5px);
+        }
+
+        /* ===== ПРОЕКТЫ ===== */
+        .projects {
+            padding: 60px 0;
+            background: #fff;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
         }
+
         .project-card {
-            background: var(--white);
-            padding: 28px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--gray-200);
-            transition: var(--transition);
-        }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--primary-light); box-shadow: var(--shadow-md); }
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-1);
+            background: #f8f9fc;
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .project-icon i { font-size: 28px; color: white; }
-        .project-title { font-size: 1.4rem; margin-bottom: 8px; }
-        .project-role {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            margin-bottom: 16px;
-        }
-        .project-description {
-            color: var(--gray-600);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* ==================== */
-        /* Практика */
-        /* ==================== */
-        .practice-image {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 24px;
-            margin: 20px auto;
-            display: block;
-            box-shadow: var(--shadow-md);
-        }
-        .twine-link {
-            background: var(--gradient-1);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-            margin-top: 20px;
-        }
-        .twine-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ==================== */
-        /* Roadmap */
-        /* ==================== */
-        .roadmap-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .roadmap-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-            background: var(--white);
             padding: 24px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            border: 1px solid #eee;
+            transition: 0.3s;
         }
-        .roadmap-item:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-md);
+
+        .project-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-3px);
         }
-        .roadmap-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            flex-shrink: 0;
+
+        .project-card .role {
+            display: inline-block;
+            background: rgba(99,102,241,0.1);
+            color: #6366f1;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
-        .roadmap-content h3 {
-            font-size: 1.3rem;
+
+        .project-card h3 {
+            font-size: 20px;
             margin-bottom: 8px;
         }
-        .skills-categories {
+
+        .project-card p {
+            color: #4a4a6a;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-card .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .skill-category {
-            background: var(--gray-100);
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            gap: 8px;
         }
 
-        @media (max-width: 768px) {
-            .roadmap-item { flex-direction: column; text-align: center; }
-            .roadmap-icon { margin: 0 auto; }
+        .project-card .tag {
+            background: #fff;
+            padding: 4px 14px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #4a4a6a;
+            border: 1px solid #ddd;
         }
 
-        /* ==================== */
-        /* Обо мне */
-        /* ==================== */
-        .skills-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 24px;
-            margin: 40px 0;
+        /* ===== ПРАКТИКА ===== */
+        .practice {
+            padding: 60px 0;
+            background: #f8f9fc;
         }
-        .skill-card {
-            background: var(--gray-100);
-            padding: 28px;
-            border-radius: 24px;
+
+        .practice-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            transition: var(--transition);
         }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+
+        .practice-content img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            margin-bottom: 20px;
         }
-        .skill-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 16px;
+
+        .practice-content p {
+            font-size: 16px;
+            color: #4a4a6a;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
-        .skill-card h3 {
-            margin-bottom: 16px;
-        }
-        .justify-center {
-            justify-content: center;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        .social-link {
-            background: var(--gray-100);
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            color: var(--gray-800);
-            font-weight: 500;
-            transition: var(--transition);
+
+        .practice-link {
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
         }
-        .social-link:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
-        /* ==================== */
-        /* Футер */
-        /* ==================== */
-        .footer {
-            background: var(--dark);
-            color: var(--gray-400);
-            text-align: center;
-            padding: 50px 0 30px;
+        .practice-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99,102,241,0.4);
         }
+
+        /* ===== САМОРАЗВИТИЕ ===== */
+        .self-development {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .roadmap-item {
+            background: #f8f9fc;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .roadmap-item:hover {
+            border-color: #6366f1;
+            transform: translateY(-3px);
+        }
+
+        .roadmap-item .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #6366f1;
+        }
+
+        .roadmap-item h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .roadmap-item p {
+            color: #6a6a8a;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .roadmap-item .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .roadmap-item .skill {
+            background: #fff;
+            padding: 4px 14px;
+            border-radius: 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* ===== ОБО МНЕ ===== */
+        .about {
+            padding: 60px 0;
+            background: #f8f9fc;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .about-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #eee;
+        }
+
+        .about-item .icon {
+            font-size: 24px;
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+
+        .about-item h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .about-item p {
+            font-size: 14px;
+            color: #6a6a8a;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            background: #1a1a2e;
+            color: #a0a0c0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin: 20px 0;
             flex-wrap: wrap;
         }
-        .footer-link {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .footer-link:hover { color: var(--primary); }
 
-        /* ==================== */
-        /* Модальное окно (оставлено для совместимости, но теперь не используется) */
-        /* ==================== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
+        .footer-links a {
+            color: #a0a0c0;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
         }
-        .modal.active { display: flex; }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            background: var(--white);
-            border-radius: 24px;
-            overflow: auto;
-            position: relative;
-            animation: slideUp 0.4s ease;
+
+        .footer-links a:hover {
+            color: #6366f1;
         }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-name {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .certificates-grid,
+            .projects-grid,
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                justify-content: center;
+                padding-right: 0;
+                font-size: 12px;
+            }
+
+            .top-bar span {
+                margin: 0 10px;
+            }
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal-content img { width: 100%; height: auto; border-radius: 24px; }
-        .close-modal {
-            position: absolute;
-            top: 15px; right: 20px;
-            font-size: 32px;
-            cursor: pointer;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-        .close-modal:hover {
-            background: var(--primary);
-            transform: rotate(90deg);
+
+        @media (max-width: 480px) {
+            .hero-name {
+                font-size: 26px;
+            }
+
+            .hero-specialization {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .stat-item h3 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- Фиксированная навигация -->
-<nav class="navbar" id="navbar">
+<!-- ===== ВЕРХНЯЯ ПАНЕЛЬ С ПОГОДОЙ ===== -->
+<div class="top-bar">
+    <span>🌤 18°C</span>
+    <span>Солнечно</span>
+</div>
+
+<!-- ===== НАВИГАЦИЯ ===== -->
+<nav class="navbar">
     <div class="nav-container">
         <a href="#home" class="nav-logo">УК</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#home" class="nav-link">Главная</a></li>
-            <li><a href="#courses" class="nav-link">Курсы</a></li>
-            <li><a href="#projects" class="nav-link">Проекты</a></li>
-            <li><a href="#practice" class="nav-link">Практика</a></li>
-            <li><a href="#self-development" class="nav-link">Саморазвитие</a></li>
-            <li><a href="#about" class="nav-link">Обо мне</a></li>
+            <li><a href="#home" class="active">Главная</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#practice">Практика</a></li>
+            <li><a href="#self-development">Саморазвитие</a></li>
+            <li><a href="#about">Обо мне</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Герой -->
+<!-- ===== ГЕРОЙ ===== -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-content">
-            <div class="profile-wrapper">
-                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop" alt="Кулькова Ульяна" class="profile-photo">
-            </div>
-            <div class="hero-text">
-                <div class="hero-badge"><i class="fas fa-star"></i> Open for opportunities</div>
-                <h1 class="hero-name">Кулькова Ульяна Андреевна</h1>
-                <div class="hero-specialization">IT-специалист • Менеджер проектов</div>
-                <p class="hero-pitch">Организую эффективную работу команд, работаю с базами данных и IT-инфраструктурой. Умею учиться быстро и решать нетривиальные задачи.</p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
-                    <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
-                </div>
+            <div class="hero-badge">⭐ Open for opportunities</div>
+            <h1 class="hero-name">Кулькова Ульяна Андреевна</h1>
+            <div class="hero-specialization">IT-специалист • Менеджер проектов</div>
+            <p class="hero-pitch">Организую эффективную работу команд, работаю с базами данных и IT-инфраструктурой.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
+                <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Курсы (с фильтрацией) -->
+<!-- ===== СТАТИСТИКА ===== -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Пройденных курсов</p>
+            </div>
+            <div class="stat-item">
+                <h3>4</h3>
+                <p>Реализованных проекта</p>
+            </div>
+            <div class="stat-item">
+                <h3>94%</h3>
+                <p>Средний балл</p>
+            </div>
+            <div class="stat-item">
+                <h3>3</h3>
+                <p>Технологии в работе</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== КУРСЫ ===== -->
 <section class="courses" id="courses">
     <div class="container">
         <h2 class="section-title">📚 Пройденные курсы</h2>
-        <p class="section-subtitle">Сертификаты, подтверждающие мои знания. Нажмите на карточку, чтобы открыть сертификат в Google Drive.</p>
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Все</button>
-            <button class="filter-btn" data-filter="programming">Программирование</button>
-            <button class="filter-btn" data-filter="ai">ИИ</button>
-            <button class="filter-btn" data-filter="marketing">Маркетинг</button>
-        </div>
-        <div class="certificates-grid" id="certificatesGrid">
-            <!-- Карточка 1: ИТ-Диктант (ссылка на айти.jpg) -->
-            <a href="https://drive.google.com/file/d/1q5ZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="programming">
-                <div class="certificate-image-container"><img src="photo_5350481738817277267_y.jpg" alt="ИТ-Диктант" class="certificate-image"></div>
-                <div class="certificate-info">
-                    <div class="platform-badge">Всероссийская акция</div>
-                    <h3 class="certificate-title">ИТ-Диктант</h3>
-                    <div class="certificate-meta">📅 12-13 сентября 2025 · ⭐ 94/100</div>
-                    <p>Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность.</p>
-                    <div class="skills-list"><span class="skill-tag">IT-грамотность</span><span class="skill-tag">Цифровые компетенции</span><span class="skill-tag">Инфобезопасность</span></div>
+        <p class="section-subtitle">Сертификаты, подтверждающие мои знания (нажмите на карточку, чтобы открыть)</p>
+        
+        <div class="certificates-grid">
+            <!-- ИТ-Диктант -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <span class="badge">Всероссийская акция</span>
+                <h3>ИТ-Диктант</h3>
+                <div class="meta">📅 12-13 сентября 2025 · ⭐ 94/100</div>
+                <p>Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность.</p>
+                <div class="skills">
+                    <span class="skill-tag">IT-грамотность</span>
+                    <span class="skill-tag">Цифровые компетенции</span>
                 </div>
+                <div class="open-btn">Открыть сертификат <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- Карточка 2: Генеративное искусство (ссылка на сбер1.jpg) -->
-            <a href="https://drive.google.com/file/d/1r6uZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="ai">
-                <div class="certificate-image-container"><img src="photo_5350481738817277264_y.jpg" alt="Генеративное искусство" class="certificate-image"></div>
-                <div class="certificate-info">
-                    <div class="platform-badge">СберУниверситет</div>
-                    <h3 class="certificate-title">Генеративное искусство</h3>
-                    <div class="certificate-meta">📅 5 ноября 2025 · 🧠 Электронный курс</div>
-                    <p>Создание и работа с генеративными нейросетями для цифрового искусства.</p>
-                    <div class="skills-list"><span class="skill-tag">Нейросети</span><span class="skill-tag">Промпт-инжиниринг</span><span class="skill-tag">AI Art</span></div>
+            <!-- Работа с LLM GigaChat -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <span class="badge">СберУниверситет</span>
+                <h3>Работа с LLM GigaChat</h3>
+                <div class="meta">📅 5 ноября 2025 · 🤖 Электронный курс</div>
+                <p>Работа с большими языковыми моделями, их тонкой настройке и интеграции в проекты.</p>
+                <div class="skills">
+                    <span class="skill-tag">LLM</span>
+                    <span class="skill-tag">GigaChat</span>
                 </div>
+                <div class="open-btn">Открыть сертификат <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- Карточка 3: Работа с LLM GigaChat (ссылка на сбер 2.jpg) -->
-            <a href="https://drive.google.com/file/d/1s7vZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="ai">
-                <div class="certificate-image-container"><img src="photo_5350481738817277265_y.jpg" alt="GigaChat" class="certificate-image"></div>
-                <div class="certificate-info">
-                    <div class="platform-badge">СберУниверситет</div>
-                    <h3 class="certificate-title">Работа с LLM GigaChat</h3>
-                    <div class="certificate-meta">📅 5 ноября 2025 · 🤖 Электронный курс</div>
-                    <p>Работа с большими языковыми моделями, тонкая настройка, интеграция в проекты.</p>
-                    <div class="skills-list"><span class="skill-tag">LLM</span><span class="skill-tag">GigaChat</span><span class="skill-tag">RAG</span></div>
+            <!-- SQL Базовый курс -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <span class="badge">Базовый курс</span>
+                <h3>SQL Базовый курс</h3>
+                <div class="meta">📊 41/41 баллов · 100%</div>
+                <p>Полное прохождение материалов по SQL, работа с запросами и базами данных.</p>
+                <div class="skills">
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Базы данных</span>
                 </div>
+                <div class="open-btn">Открыть сертификат <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <!-- Карточка 4: VK Education (ссылка на вк.jpg) -->
-            <a href="https://drive.google.com/file/d/1t8wZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="marketing">
-                <div class="certificate-image-container"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=200&fit=crop" alt="VK Education" class="certificate-image"></div>
-                <div class="certificate-info">
-                    <div class="platform-badge">VK Education</div>
-                    <h3 class="certificate-title">SMM и digital-маркетинг</h3>
-                    <div class="certificate-meta">📅 2024 · 📊 28/37 баллов</div>
-                    <p>Эффективное использование платформ VK в SMM и digital-маркетинге.</p>
-                    <div class="skills-list"><span class="skill-tag">SMM</span><span class="skill-tag">Digital-маркетинг</span><span class="skill-tag">VK Реклама</span></div>
+            <!-- Генеративное искусство -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <span class="badge">СберУниверситет</span>
+                <h3>Генеративное искусство</h3>
+                <div class="meta">📅 5 ноября 2025 · 🧠 Электронный курс</div>
+                <p>Создание и работа с генеративными нейросетями для создания цифрового искусства.</p>
+                <div class="skills">
+                    <span class="skill-tag">Нейросети</span>
+                    <span class="skill-tag">Промпт-инжиниринг</span>
                 </div>
+                <div class="open-btn">Открыть сертификат <i class="fas fa-arrow-right"></i></div>
+            </a>
+
+            <!-- SMM & digital-маркетинг -->
+            <a href="https://drive.google.com/file/d/1eRpf6oJ4Bf9oSv9bR8QVP_fNbLr57KhA/view?usp=sharing" target="_blank" class="certificate-card">
+                <span class="badge">VK Education</span>
+                <h3>SMM & digital-маркетинг</h3>
+                <div class="meta">📅 2024 · 📊 28/37 баллов</div>
+                <p>Эффективное использование платформ VK в SMM и digital-маркетинге.</p>
+                <div class="skills">
+                    <span class="skill-tag">SMM</span>
+                    <span class="skill-tag">Digital-маркетинг</span>
+                </div>
+                <div class="open-btn">Открыть сертификат <i class="fas fa-arrow-right"></i></div>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Проекты -->
+<!-- ===== ПРОЕКТЫ ===== -->
 <section class="projects" id="projects">
     <div class="container">
         <h2 class="section-title">💼 Мои проекты</h2>
         <p class="section-subtitle">Практические работы и реализованные решения</p>
+        
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                <h3 class="project-title">Документооборот в команде</h3>
-                <span class="project-role">Менеджер проекта</span>
-                <p class="project-description">Реализация системы документооборота для управления проектной документацией. Отвечала за выполнение заданий участниками команды, координацию и контроль сроков.</p>
-                <div class="skills-list"><span class="skill-tag">Управление проектами</span><span class="skill-tag">Координация</span><span class="skill-tag">Контроль качества</span></div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-icon"><i class="fas fa-trophy"></i></div>
-                <h3 class="project-title">Проект для конкурса «Система»</h3>
-                <span class="project-role">Менеджер</span>
-                <p class="project-description">Участие в конкурсе с проектом автоматизации образовательного процесса. Организация работы команды, распределение задач и контроль выполнения.</p>
-                <div class="skills-list"><span class="skill-tag">Организация работы</span><span class="skill-tag">Распределение задач</span><span class="skill-tag">Контроль</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon"><i class="fas fa-palette"></i></div>
-                <h3 class="project-title">Редизайн Evelink</h3>
-                <span class="project-role">Аналитик • Дизайнер</span>
-                <p class="project-description">
-                    <strong>Редизайн веб-платформы Evelink</strong> — полностью обновила визуальную концепцию и пользовательский интерфейс. 
-                    Провела анализ текущего интерфейса, разработала новые макеты в Figma, 
-                    улучшила пользовательский опыт (UX) и адаптивную вёрстку.
-                </p>
-                <div class="skills-list">
-                    <span class="skill-tag">UI/UX дизайн</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Анализ интерфейсов</span>
-                    <span class="skill-tag">Прототипирование</span>
+                <span class="role">Менеджер проекта</span>
+                <h3>Документооборот в команде</h3>
+                <p>Реализация системы документооборота для управления проектной документацией. Отвечала за выполнение заданий участниками команды, координацию и контроль сроков.</p>
+                <div class="tags">
+                    <span class="tag">Управление проектами</span>
+                    <span class="tag">Координация</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-icon"><i class="fas fa-database"></i></div>
-                <h3 class="project-title">Работа с базой данных</h3>
-                <span class="project-role">Разработчик БД</span>
-                <p class="project-description">
-                    <strong>Проектирование и администрирование баз данных</strong> — разработка структуры БД для системы документооборота. 
-                    Создание SQL-запросов, оптимизация производительности, настройка индексов, 
-                    работа с PostgreSQL и MySQL.
-                </p>
-                <div class="skills-list">
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Оптимизация запросов</span>
-                    <span class="skill-tag">Индексы</span>
+                <span class="role">Менеджер</span>
+                <h3>Проект для конкурса «Система»</h3>
+                <p>Участие в конкурсе с проектом автоматизации образовательного процесса. Организация работы команды, распределение задач и контроль выполнения.</p>
+                <div class="tags">
+                    <span class="tag">Организация работы</span>
+                    <span class="tag">Распределение задач</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="role">Аналитик • Дизайнер</span>
+                <h3>Редизайн Evelink</h3>
+                <p>Полный редизайн веб-платформы Evelink. Разработка макетов в Figma, улучшение пользовательского опыта и адаптивной вёрстки.</p>
+                <div class="tags">
+                    <span class="tag">UI/UX дизайн</span>
+                    <span class="tag">Figma</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="role">Разработчик БД</span>
+                <h3>Работа с базой данных</h3>
+                <p>Проектирование и администрирование баз данных для системы документооборота. Создание SQL-запросов, оптимизация производительности.</p>
+                <div class="tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">MySQL</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Практика -->
+<!-- ===== ПРАКТИКА ===== -->
 <section class="practice" id="practice">
     <div class="container">
         <h2 class="section-title">🏢 Производственная практика</h2>
         <p class="section-subtitle">Опыт работы в реальных условиях</p>
-        <div style="text-align: center; max-width: 800px; margin: auto;">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600" class="practice-image" alt="Практика">
-            <p style="margin-bottom: 20px;">Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong>. Получила практический опыт работы с IT-инфраструктурой, участвовала в разработке внутренних систем, изучала процессы документооборота и управления проектами. Также работала с базами данных предприятия и участвовала в анализе IT-систем.</p>
-            <a href="#" class="twine-link"><i class="fas fa-gamepad"></i> Интерактивная новелла о практике</a>
+        
+        <div class="practice-content">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600" alt="Практика">
+            <p>Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong>. Получила практический опыт работы с IT-инфраструктурой, участвовала в разработке внутренних систем, изучала процессы документооборота и управления проектами. Также работала с базами данных предприятия и участвовала в анализе IT-систем.</p>
+            <a href="#" class="practice-link"><i class="fas fa-gamepad"></i> Интерактивная новелла о практике</a>
         </div>
     </div>
 </section>
 
-<!-- Саморазвитие -->
+<!-- ===== САМОРАЗВИТИЕ ===== -->
 <section class="self-development" id="self-development">
     <div class="container">
         <h2 class="section-title">🚀 Саморазвитие и обучение</h2>
         <p class="section-subtitle">Дорожная карта моих профессиональных навыков</p>
-        <div class="roadmap-container">
+        
+        <div class="roadmap-grid">
             <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-code"></i></div>
-                <div class="roadmap-content">
-                    <h3>Веб-разработка</h3>
-                    <p>Создание современных веб-приложений</p>
-                    <div class="skills-categories"><span class="skill-category">HTML5</span><span class
+                <div class="icon"><i class="fas fa-code"></i></div>
+                <h3>Веб-разработка</h3>
+                <p>Создание современных веб-приложений</p>
+                <div class="skills">
+                    <span class="skill">HTML5</span>
+                    <span class="skill">CSS3</span>
+                    <span class="skill">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="icon"><i class="fas fa-database"></i></div>
+                <h3>Базы данных</h3>
+                <p>Проектирование, администрирование и оптимизация БД</p>
+                <div class="skills">
+                    <span class="skill">SQL</span>
+                    <span class="skill">PostgreSQL</span>
+                    <span class="skill">MySQL</span>
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="icon"><i class="fas fa-brain"></i></div>
+                <h3>Искусственный интеллект</h3>
+                <p>Работа с LLM и генеративными моделями</p>
+                <div class="skills">
+                    <span class="skill">GigaChat</span>
+                    <span class="skill">Нейросети</span>
+                    <span class="skill">Промпт-инжиниринг</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ОБО МНЕ ===== -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">👩‍💻 Обо мне</h2>
+        <p class="section-subtitle">Мои навыки и контакты</p>
+        
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-item">
+                    <div class="icon"><i class="fas fa-tasks"></i></div>
+                    <h4>Управление проектами</h4>
+                    <p>Организация работы команд, контроль сроков</p>
+                </div>
+                <div class="about-item">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h4>Базы данных</h4>
+                    <p>SQL, PostgreSQL, MySQL, оптимизация</p>
+                </div>
+                <div class="about-item">
+                    <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                    <h4>UI/UX дизайн</h4>
+                    <p>Figma, прототипирование, анализ</p>
+                </div>
+                <div class="about-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Искусственный интеллект</h4>
+                    <p>LLM, GigaChat, генеративные нейросети</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ФУТЕР ===== -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Кулькова Ульяна Андреевна</p>
+        <div class="footer-links">
+            <a href="#">GitHub репозиторий</a>
+            <a href="#">Опубликованная версия</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== СКРИПТЫ ===== -->
+<script>
+    // Мобильное меню
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+    });
+
+    // Активная ссылка при скролле
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Закрытие меню при клике на ссылку
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
