@@ -326,19 +326,6 @@
         }
         .btn-secondary:hover { background: var(--primary); transform: translateY(-3px); }
 
-        /* НОВЫЕ КНОПКИ ДЛЯ DJANGO И LARAVEL - ТОЛЬКО ДОБАВЛЕНЫ, ВСЁ ОСТАЛЬНОЕ БЕЗ ИЗМЕНЕНИЙ */
-        .btn-django {
-            background: #092E20;
-            color: white;
-        }
-        .btn-django:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #092E20; }
-
-        .btn-laravel {
-            background: #FF2D20;
-            color: white;
-        }
-        .btn-laravel:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px #FF2D20; }
-
         @media (max-width: 768px) {
             .hero-content { flex-direction: column; text-align: center; }
             .hero-name { font-size: 2.5rem; }
@@ -385,6 +372,9 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .certificate-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 
@@ -634,7 +624,7 @@
         .footer-link:hover { color: var(--primary); }
 
         /* ==================== */
-        /* Модальное окно */
+        /* Модальное окно (оставлено для совместимости, но теперь не используется) */
         /* ==================== */
         .modal {
             display: none;
@@ -718,9 +708,6 @@
                 <div class="btn-group">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
                     <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
-                    <!-- НОВЫЕ КНОПКИ ТОЛЬКО ДОБАВЛЕНЫ, ВСЁ ОСТАЛЬНОЕ БЕЗ ИЗМЕНЕНИЙ -->
-                    <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django"><i class="fab fa-python"></i> Django проект</a>
-                    <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel"><i class="fab fa-laravel"></i> Laravel проект</a>
                 </div>
             </div>
         </div>
@@ -731,7 +718,7 @@
 <section class="courses" id="courses">
     <div class="container">
         <h2 class="section-title">📚 Пройденные курсы</h2>
-        <p class="section-subtitle">Сертификаты, подтверждающие мои знания</p>
+        <p class="section-subtitle">Сертификаты, подтверждающие мои знания. Нажмите на карточку, чтобы открыть сертификат в Google Drive.</p>
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Все</button>
             <button class="filter-btn" data-filter="programming">Программирование</button>
@@ -739,8 +726,8 @@
             <button class="filter-btn" data-filter="marketing">Маркетинг</button>
         </div>
         <div class="certificates-grid" id="certificatesGrid">
-            <!-- Карточка 1 (программирование) -->
-            <div class="certificate-card" data-category="programming">
+            <!-- Карточка 1: ИТ-Диктант (ссылка на айти.jpg) -->
+            <a href="https://drive.google.com/file/d/1q5ZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="programming">
                 <div class="certificate-image-container"><img src="photo_5350481738817277267_y.jpg" alt="ИТ-Диктант" class="certificate-image"></div>
                 <div class="certificate-info">
                     <div class="platform-badge">Всероссийская акция</div>
@@ -749,9 +736,10 @@
                     <p>Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность.</p>
                     <div class="skills-list"><span class="skill-tag">IT-грамотность</span><span class="skill-tag">Цифровые компетенции</span><span class="skill-tag">Инфобезопасность</span></div>
                 </div>
-            </div>
-            <!-- Карточка 2 (ИИ) -->
-            <div class="certificate-card" data-category="ai">
+            </a>
+
+            <!-- Карточка 2: Генеративное искусство (ссылка на сбер1.jpg) -->
+            <a href="https://drive.google.com/file/d/1r6uZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="ai">
                 <div class="certificate-image-container"><img src="photo_5350481738817277264_y.jpg" alt="Генеративное искусство" class="certificate-image"></div>
                 <div class="certificate-info">
                     <div class="platform-badge">СберУниверситет</div>
@@ -760,9 +748,10 @@
                     <p>Создание и работа с генеративными нейросетями для цифрового искусства.</p>
                     <div class="skills-list"><span class="skill-tag">Нейросети</span><span class="skill-tag">Промпт-инжиниринг</span><span class="skill-tag">AI Art</span></div>
                 </div>
-            </div>
-            <!-- Карточка 3 (ИИ) -->
-            <div class="certificate-card" data-category="ai">
+            </a>
+
+            <!-- Карточка 3: Работа с LLM GigaChat (ссылка на сбер 2.jpg) -->
+            <a href="https://drive.google.com/file/d/1s7vZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="ai">
                 <div class="certificate-image-container"><img src="photo_5350481738817277265_y.jpg" alt="GigaChat" class="certificate-image"></div>
                 <div class="certificate-info">
                     <div class="platform-badge">СберУниверситет</div>
@@ -771,9 +760,10 @@
                     <p>Работа с большими языковыми моделями, тонкая настройка, интеграция в проекты.</p>
                     <div class="skills-list"><span class="skill-tag">LLM</span><span class="skill-tag">GigaChat</span><span class="skill-tag">RAG</span></div>
                 </div>
-            </div>
-            <!-- Карточка 4 (маркетинг) -->
-            <div class="certificate-card" data-category="marketing">
+            </a>
+
+            <!-- Карточка 4: VK Education (ссылка на вк.jpg) -->
+            <a href="https://drive.google.com/file/d/1t8wZtPZt4TZt4TZt4TZt4TZt4TZt4/view?usp=sharing" target="_blank" class="certificate-card" data-category="marketing">
                 <div class="certificate-image-container"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=200&fit=crop" alt="VK Education" class="certificate-image"></div>
                 <div class="certificate-info">
                     <div class="platform-badge">VK Education</div>
@@ -782,7 +772,7 @@
                     <p>Эффективное использование платформ VK в SMM и digital-маркетинге.</p>
                     <div class="skills-list"><span class="skill-tag">SMM</span><span class="skill-tag">Digital-маркетинг</span><span class="skill-tag">VK Реклама</span></div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
@@ -871,328 +861,4 @@
                 <div class="roadmap-content">
                     <h3>Веб-разработка</h3>
                     <p>Создание современных веб-приложений</p>
-                    <div class="skills-categories"><span class="skill-category">HTML5</span><span class="skill-category">CSS3</span><span class="skill-category">JavaScript</span><span class="skill-category">TypeScript</span></div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-database"></i></div>
-                <div class="roadmap-content">
-                    <h3>Базы данных</h3>
-                    <p>Проектирование, администрирование и оптимизация БД</p>
-                    <div class="skills-categories"><span class="skill-category">SQL</span><span class="skill-category">PostgreSQL</span><span class="skill-category">MySQL</span><span class="skill-category">Оптимизация</span></div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-paint-brush"></i></div>
-                <div class="roadmap-content">
-                    <h3>UI/UX дизайн</h3>
-                    <p>Создание удобных и красивых интерфейсов</p>
-                    <div class="skills-categories">
-                        <span class="skill-category">Figma</span>
-                        <span class="skill-category">Прототипирование</span>
-                        <span class="skill-category">Анализ интерфейсов</span>
-                    </div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="roadmap-content">
-                    <h3>Информационная безопасность</h3>
-                    <p>Защита данных и систем от кибератак</p>
-                    <div class="skills-categories">
-                        <span class="skill-category">Сетевая безопасность</span>
-                        <span class="skill-category">DDoS-защита</span>
-                        <span class="skill-category">Шифрование</span>
-                        <span class="skill-category">Защита данных</span>
-                    </div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-brain"></i></div>
-                <div class="roadmap-content">
-                    <h3>Генеративные модели</h3>
-                    <p>Работа с искусственным интеллектом</p>
-                    <div class="skills-categories">
-                        <span class="skill-category">GigaChat</span>
-                        <span class="skill-category">Kandinsky</span>
-                        <span class="skill-category">Промпт-инжиниринг</span>
-                    </div>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon"><i class="fas fa-tasks"></i></div>
-                <div class="roadmap-content">
-                    <h3>Управление проектами</h3>
-                    <p>Организация работы команд и контроль выполнения задач</p>
-                    <div class="skills-categories">
-                        <span class="skill-category">Планирование</span>
-                        <span class="skill-category">Координация</span>
-                        <span class="skill-category">Контроль качества</span>
-                        <span class="skill-category">Командная работа</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Обо мне -->
-<section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">👩‍💻 Обо мне</h2>
-        <p class="section-subtitle">Краткая биография и контактная информация</p>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="margin-bottom: 20px;">Учусь в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong> по специальности 09.02.07 «Информационные системы и программирование».</p>
-            <p style="margin-bottom: 30px;">Специализируюсь на организации работы команд и управлении проектами в IT-сфере. Имею опыт координации работы разработчиков и контроля выполнения задач. Стремлюсь к постоянному профессиональному развитию и получению практического опыта.</p>
-            
-            <div class="skills-wrapper">
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Языки программирования</h3>
-                    <div class="skills-list justify-center">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">1C</span>
-                        <span class="skill-tag">Bash</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Инструменты и технологии</h3>
-                    <div class="skills-list justify-center">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Yandex Cloud</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">LVM</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Soft Skills</h3>
-                    <div class="skills-list justify-center">
-                        <span class="skill-tag">Тайм-менеджмент</span>
-                        <span class="skill-tag">Дисциплина</span>
-                        <span class="skill-tag">Работа в команде</span>
-                        <span class="skill-tag">Коммуникация</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
-                <a href="#" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="#" class="social-link"><i class="fab fa-vk"></i> ВКонтакте</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Футер -->
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Кулькова Ульяна Андреевна, ГБПОУ МО «Люберецкий техникум имени Героя Советского Союза, лётчика-космонавта Ю.А. Гагарина»</p>
-        <div class="footer-links">
-            <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub репозиторий</a>
-            <a href="#" class="footer-link"><i class="fas fa-globe"></i> Опубликованная версия</a>
-            <!-- НОВЫЕ КНОПКИ ТАКЖЕ ДОБАВЛЕНЫ В ФУТЕР -->
-            <a href="https://django2-z8ks.onrender.com" target="_blank" class="footer-link"><i class="fab fa-python"></i> Django</a>
-            <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="footer-link"><i class="fab fa-laravel"></i> Laravel</a>
-        </div>
-        <p class="github-info">Сайт доступен по адресу: https://ulanakulkova.github.io/sait/</p>
-    </div>
-</footer>
-
-<!-- Модальное окно для сертификатов -->
-<div class="modal" id="certificateModal">
-    <div class="modal-content">
-        <button class="close-modal" onclick="closeCertificateModal()">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="modal-header" style="padding: 30px 30px 20px; border-bottom: 1px solid var(--gray-200);">
-            <h3 id="modalTitle" style="font-size: 2rem;">ИТ-Диктант</h3>
-            <p id="modalPlatform" style="color: var(--primary); font-weight: 600;">Всероссийская образовательная акция</p>
-        </div>
-        
-        <div class="certificate-full-image" style="padding: 30px; text-align: center;">
-            <img id="modalImage" src="photo_5350481738817277267_y.jpg" alt="Сертификат" style="max-width: 100%; max-height: 400px; border-radius: 10px; box-shadow: var(--shadow);">
-        </div>
-        
-        <div class="modal-info" style="padding: 0 30px 30px;">
-            <div class="info-item" style="margin-bottom: 15px;">
-                <strong>Дата:</strong> <span id="modalDate">12-13 сентября 2025 г.</span>
-            </div>
-            <div class="info-item" style="margin-bottom: 15px;">
-                <strong>Результат:</strong> <span id="modalScore">94 из 100 баллов</span>
-            </div>
-            <div class="info-item">
-                <strong>Описание:</strong> 
-                <span id="modalDescription">Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность</span>
-            </div>
-        </div>
-        
-        <div class="modal-actions" style="padding: 20px 30px; border-top: 1px solid var(--gray-200); display: flex; gap: 15px; justify-content: flex-end;">
-            <button class="btn btn-primary" onclick="window.open(document.getElementById('modalImage').src, '_blank')">
-                <i class="fas fa-external-link-alt"></i> Открыть оригинал
-            </button>
-            <button class="btn btn-secondary" onclick="closeCertificateModal()" style="background: var(--gray-100); color: var(--gray-800); border: none;">
-                Закрыть
-            </button>
-        </div>
-    </div>
-</div>
-
-<script>
-    // ===== ФУНКЦИОНАЛЬНОСТЬ САЙТА =====
-    
-    // Данные для сертификатов
-    const certificates = {
-        'it-dictant': {
-            title: 'ИТ-Диктант',
-            platform: 'Всероссийская образовательная акция',
-            image: 'photo_5350481738817277267_y.jpg',
-            date: '12-13 сентября 2025 г.',
-            score: '94 из 100 баллов',
-            description: 'Всероссийский диктант по информационным технологиям, проверяющий цифровую грамотность'
-        },
-        'generative-art': {
-            title: 'Генеративное искусство',
-            platform: 'СберУниверситет',
-            image: 'photo_5350481738817277264_y.jpg',
-            date: '5 ноября 2025 г.',
-            score: 'Электронный курс',
-            description: 'Курс по созданию и работе с генеративными нейросетями для создания цифрового искусства'
-        },
-        'gigachat': {
-            title: 'Работа с LLM GigaChat',
-            platform: 'СберУниверситет',
-            image: 'photo_5350481738817277265_y.jpg',
-            date: '5 ноября 2025 г.',
-            score: 'Электронный курс',
-            description: 'Курс по работе с большими языковыми моделями, их тонкой настройке и интеграции в проекты'
-        },
-        'vk-education': {
-            title: 'Новые медиа: SMM и digital-маркетинг',
-            platform: 'VK Education',
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=200&fit=crop',
-            date: '2024 г.',
-            score: '28 из 37 баллов',
-            description: 'Программа по эффективному использованию платформ VK в SMM и digital-маркетинге'
-        }
-    };
-
-    // Открытие модального окна с сертификатом
-    function openCertificateModal(certId) {
-        const cert = certificates[certId];
-        if (!cert) return;
-        
-        document.getElementById('modalTitle').textContent = cert.title;
-        document.getElementById('modalPlatform').textContent = cert.platform;
-        document.getElementById('modalImage').src = cert.image;
-        document.getElementById('modalDate').textContent = cert.date;
-        document.getElementById('modalScore').textContent = cert.score;
-        document.getElementById('modalDescription').textContent = cert.description;
-        
-        document.getElementById('certificateModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Закрытие модального окна
-    function closeCertificateModal() {
-        document.getElementById('certificateModal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Фильтрация сертификатов
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const certificateCards = document.querySelectorAll('.certificate-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                
-                certificateCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Навигация
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section, .hero');
-        
-        function updateActiveNavLink() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.id || 'home';
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateActiveNavLink);
-        
-        // Sticky navbar при скролле
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Мобильное меню
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Закрытие модального окна при клике вне его
-        document.getElementById('certificateModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeCertificateModal();
-            }
-        });
-        
-        // Закрытие модального окна при нажатии ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeCertificateModal();
-            }
-        });
-        
-        // Навешиваем обработчики на карточки сертификатов
-        const certCards = document.querySelectorAll('.certificate-card');
-        certCards.forEach((card, index) => {
-            const certIds = ['it-dictant', 'generative-art', 'gigachat', 'vk-education'];
-            card.addEventListener('click', function() {
-                openCertificateModal(certIds[index] || 'it-dictant');
-            });
-        });
-    });
-</script>
-</body>
-</html>
+                    <div class="skills-categories"><span class="skill-category">HTML5</span><span class
