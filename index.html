@@ -185,7 +185,6 @@
             transform: translateY(-3px);
         }
 
-        /* НОВЫЕ КНОПКИ ДЛЯ DJANGO И LARAVEL */
         .btn-django {
             background: #092E20;
             color: #fff;
@@ -417,6 +416,7 @@
             max-width: 500px;
             border-radius: 16px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .practice-content p {
@@ -693,7 +693,6 @@
             <div class="btn-group">
                 <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> Смотреть проекты</a>
                 <a href="#courses" class="btn btn-secondary"><i class="fas fa-certificate"></i> Мои сертификаты</a>
-                <!-- НОВЫЕ КНОПКИ ДЛЯ DJANGO И LARAVEL -->
                 <a href="https://django2-z8ks.onrender.com" target="_blank" class="btn btn-django"><i class="fab fa-python"></i> Django проект</a>
                 <a href="https://laravel2-b0o0.onrender.com" target="_blank" class="btn btn-laravel"><i class="fab fa-laravel"></i> Laravel проект</a>
             </div>
@@ -848,7 +847,6 @@
                 </div>
             </div>
 
-            <!-- НОВАЯ КАРТОЧКА: КУРСОВАЯ РАБОТА -->
             <div class="project-card">
                 <span class="role">Автор</span>
                 <h3>Курсовая работа</h3>
@@ -863,14 +861,15 @@
     </div>
 </section>
 
-<!-- ===== ПРАКТИКА ===== -->
+<!-- ===== ПРАКТИКА (ТОЛЬКО ЗДЕСЬ ИЗМЕНЕНО ИЗОБРАЖЕНИЕ) ===== -->
 <section class="practice" id="practice">
     <div class="container">
         <h2 class="section-title">🏢 Производственная практика</h2>
         <p class="section-subtitle">Опыт работы в реальных условиях</p>
 
         <div class="practice-content">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600" alt="Практика">
+            <!-- ИЗОБРАЖЕНИЕ ЗАМЕНЕНО НА все.jpg -->
+            <img src="все.jpg" alt="Производственная практика">
             <p>Прохождение производственной практики в <strong>ГБПОУ МО «Люберецкий техникум имени Ю.А. Гагарина»</strong>. Получила практический опыт работы с IT-инфраструктурой, участвовала в разработке внутренних систем, изучала процессы документооборота и управления проектами. Также работала с базами данных предприятия и участвовала в анализе IT-систем.</p>
             <a href="#" class="practice-link"><i class="fas fa-gamepad"></i> Интерактивная новелла о практике</a>
         </div>
@@ -915,7 +914,6 @@
                     <span class="skill">Нейросети</span>
                     <span class="skill">Промпт-инжиниринг</span>
                 </div>
-                <!-- НОВАЯ ССЫЛКА НА КОНСПЕКТ В COLAB -->
                 <a href="https://colab.research.google.com/drive/1rHuOMu-T905bZmRQcVJlBXPjfaGcKHFx?usp=sharing" target="_blank" class="colab-link">
                     <i class="fas fa-external-link-alt"></i> Открыть конспект в Colab
                 </a>
@@ -963,50 +961,5 @@
         <p>© 2025 Кулькова Ульяна Андреевна</p>
         <div class="footer-links">
             <a href="#">GitHub репозиторий</a>
-            <a href="#">Опубликованная версия</a>
-        </div>
-    </div>
-</footer>
-
-<!-- ===== СКРИПТЫ ===== -->
-<script>
-    // Мобильное меню
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    mobileBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-
-    // Активная ссылка при скролле
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    window.addEventListener('scroll', function() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Закрытие меню при клике на ссылку
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-        });
-    });
-</script>
-
-</body>
-</html>
+            <
      
